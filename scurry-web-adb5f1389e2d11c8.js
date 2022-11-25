@@ -622,7 +622,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('scurry-web-b550444f2298be5_bg.wasm', import.meta.url);
+        input = new URL('scurry-web-adb5f1389e2d11c8_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

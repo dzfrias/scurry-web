@@ -6,14 +6,14 @@ fn App() -> Html {
     let onclick = {
         let counter = counter.clone();
         move |_| {
-            let value = *counter + 1;
+            let value = *counter + 2;
             counter.set(value);
         }
     };
 
     html! {
         <div>
-            <button {onclick}>{ "+1" }</button>
+            <button {onclick}>{ "+2" }</button>
             <p>{ *counter }</p>
         </div>
     }

@@ -7,7 +7,7 @@ use yew::prelude::*;
 
 #[function_component]
 pub fn Editor() -> Html {
-    let output = use_state_eq(|| String::new());
+    let output = use_state_eq(String::new);
     let set_output = {
         let output = output.clone();
         move |out: String| output.set(out)

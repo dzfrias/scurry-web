@@ -38,6 +38,7 @@ pub fn Editor() -> Html {
             <div class={classes!("h-full", "md:w-1/2", "md:resize-x", "overflow-auto", "min-w-[25%]", "cursor-col-resize")}>
                 <ul class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded")}>
                     <RunButton {set_output}/>
+                    // TODO: Toggle REPL button
                 </ul>
                 <textarea id="editor" {onkeydown} spellcheck="false" placeholder="Enter code here" class={classes!("w-full", "font-mono", "text-ml", "p-2", "h-full", "focus:outline-none")}></textarea>
             </div>

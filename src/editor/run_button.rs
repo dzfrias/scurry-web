@@ -21,13 +21,16 @@ pub fn RunButton(props: &Props) -> Html {
             .expect_throw("editor should exist")
             .dyn_into::<HtmlTextAreaElement>()
             .expect_throw("element should be a textarea");
-        let mut interpreter = Interpreter::new();
+        let mut out = Vec::new();
+        let mut interpreter = Interpreter::new(&mut out);
         match Parser::new(&editor.value()).parse() {
             Ok(program) => {
-                let result = interpreter
-                    .eval_repl(program)
+                interpreter
+                    .eval(program)
+                    // FIX: Runtime errors
                     .expect_throw("should have no errors");
-                set_output.emit(result.to_string());
+                set_output
+                    .emit(String::from_utf8(out).expect_throw("program should output valid utf-8"));
             }
             Err(errs) => set_output.emit(format!(
                 "parser errors:{}",

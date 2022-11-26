@@ -1,0 +1,53 @@
+use scurry::interpreter::Interpreter;
+use scurry::parser::Parser;
+use wasm_bindgen::{JsCast, UnwrapThrowExt};
+use web_sys::{self, HtmlTextAreaElement};
+use yew::prelude::*;
+
+#[derive(PartialEq, Properties)]
+pub struct Props {
+    pub set_output: Callback<String>,
+}
+
+#[function_component]
+pub fn RunButton(props: &Props) -> Html {
+    let set_output = props.set_output.clone();
+    let onclick = Callback::from(move |_| {
+        let editor = web_sys::window()
+            .expect_throw("window should be available")
+            .document()
+            .expect_throw("document should be available")
+            .get_element_by_id("editor")
+            .expect_throw("editor should exist")
+            .dyn_into::<HtmlTextAreaElement>()
+            .expect_throw("element should be a textarea");
+        let mut interpreter = Interpreter::new();
+        match Parser::new(&editor.value()).parse() {
+            Ok(program) => {
+                let result = interpreter
+                    .eval_repl(program)
+                    .expect_throw("should have no errors");
+                set_output.emit(result.to_string());
+            }
+            Err(errs) => set_output.emit(format!(
+                "parser errors:{}",
+                errs.into_iter()
+                    .map(|err| {
+                        web_sys::console::log_1(
+                            &err.position().format_on_source(&editor.value()).into(),
+                        );
+                        format!(
+                            "\n{}\n{}\n",
+                            err.position().format_on_source(&editor.value()),
+                            err.to_string()
+                        )
+                    })
+                    .collect::<String>()
+            )),
+        }
+    });
+
+    html! {
+        <button {onclick} class={classes!("bg-blue-300", "px-3", "rounded", "text-2xl")}>{"Run"}</button>
+    }
+}

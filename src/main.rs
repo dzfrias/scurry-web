@@ -1,20 +1,14 @@
+mod editor;
+
+use editor::Editor;
 use yew::prelude::*;
 
 #[function_component]
 fn App() -> Html {
-    let counter = use_state(|| 0);
-    let onclick = {
-        let counter = counter.clone();
-        move |_| {
-            let value = *counter + 2;
-            counter.set(value);
-        }
-    };
-
     html! {
         <div>
-            <button {onclick}>{ "+2" }</button>
-            <p>{ *counter }</p>
+            <h1 class={classes!("bg-sky-300", "text-4xl", "py-2", "pl-2", "italic", "mb-5")}>{"Scurry"}</h1>
+            <Editor/>
         </div>
     }
 }

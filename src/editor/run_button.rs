@@ -36,9 +36,6 @@ pub fn RunButton(props: &Props) -> Html {
                 "parser errors:{}",
                 errs.into_iter()
                     .map(|err| {
-                        web_sys::console::log_1(
-                            &err.position().format_on_source(&editor.value()).into(),
-                        );
                         format!(
                             "\n{}\n{}\n",
                             err.position().format_on_source(&editor.value()),

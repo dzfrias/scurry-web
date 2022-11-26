@@ -7,7 +7,7 @@ use yew::prelude::*;
 
 #[function_component]
 pub fn Editor() -> Html {
-    let output = use_state_eq(|| "".to_owned());
+    let output = use_state_eq(|| String::new());
     let set_output = {
         let output = output.clone();
         move |out: String| output.set(out)
@@ -34,17 +34,17 @@ pub fn Editor() -> Html {
     };
 
     html! {
-        <div class={classes!("mx-4", "flex", "gap-2", "h-2/3", "flex-col", "md:flex-row")}>
-            <div class={classes!("h-full", "md:w-1/2", "md:resize-x", "overflow-auto", "min-w-[25%]", "cursor-col-resize")}>
+        <div class={classes!("mx-4", "flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
+            <div class={classes!("md:w-1/2", "cursor-col-resize")}>
                 <ul class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded")}>
                     <RunButton {set_output}/>
                     // TODO: Toggle REPL button
                 </ul>
-                <textarea id="editor" {onkeydown} spellcheck="false" placeholder="Enter code here" class={classes!("w-full", "font-mono", "text-ml", "p-2", "h-full", "focus:outline-none")}></textarea>
+                <textarea id="editor" {onkeydown} spellcheck="false" placeholder="Enter code here" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none")}></textarea>
             </div>
-            <div class={classes!("h-full", "md:w-1/2", "overflow-auto", "flex-auto")}>
-                <p class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100")}>{"Output"}</p>
-                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "h-full", "p-2", "text-ml", "whitespace-pre")}>{(*output).clone()}</p>
+            <div class={classes!("md:w-1/2", "overflow-y-auto")}>
+                <p class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip")}>{"Output"}</p>
+                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3")}>{&(*output)}</p>
             </div>
         </div>
     }

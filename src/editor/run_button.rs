@@ -39,7 +39,7 @@ pub fn RunButton(props: &Props) -> Html {
                         format!(
                             "\n{}\n{}\n",
                             err.position().format_on_source(&editor.value()),
-                            err.to_string()
+                            err
                         )
                     })
                     .collect::<String>()

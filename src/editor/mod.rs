@@ -14,7 +14,7 @@ pub fn Editor() -> Html {
     };
     let onkeydown = {
         move |key: KeyboardEvent| {
-            if key.key() == "Tab".to_owned() {
+            if key.key() == *"Tab" {
                 key.prevent_default();
                 let editor = web_sys::window()
                     .expect_throw("window should be available")

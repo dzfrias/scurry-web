@@ -7,7 +7,9 @@ use yew::prelude::*;
 fn App() -> Html {
     html! {
         <div class={classes!("h-screen")}>
-            <h1 class={classes!("bg-orange-900", "text-4xl", "py-3", "pl-2", "italic", "mb-5", "text-yellow-400")}>{"Scurry"}</h1>
+            <h1 class={classes!("bg-orange-900", "text-4xl", "py-3", "pl-2", "italic", "mb-5", "text-yellow-400")}>
+                {"Scurry"}<span class={classes!("text-xs", "text-yellow-500", "pl-1")}>{"A new take on object-oriented languages"}</span>
+            </h1>
             <Editor/>
         </div>
     }

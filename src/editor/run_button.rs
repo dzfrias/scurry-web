@@ -3,6 +3,7 @@ use scurry::parser::Parser;
 use wasm_bindgen::{JsCast, UnwrapThrowExt};
 use web_sys::{self, HtmlTextAreaElement};
 use yew::prelude::*;
+use yew_icons::{Icon, IconId};
 
 #[derive(PartialEq, Properties)]
 pub struct Props {
@@ -48,6 +49,6 @@ pub fn RunButton(props: &Props) -> Html {
     });
 
     html! {
-        <button {onclick} id="runButton" class={classes!("bg-orange-700", "px-3", "rounded", "text-2xl", "hover:bg-yellow-400", "text-yellow-100", "hover:text-amber-900")}>{"Run"}</button>
+        <button {onclick} id="runButton" class={classes!("bg-orange-700", "px-3", "rounded", "text-2xl", "hover:bg-yellow-400", "text-yellow-100", "hover:text-amber-900", "flex-row", "flex", "items-center", "gap-1")}>{"Run"}<Icon icon_id={IconId::FontAwesomeSolidChevronRight} width={"23px".to_owned()} height={"23px".to_owned()}/></button>
     }
 }

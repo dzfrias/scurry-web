@@ -739,6 +739,7 @@ dependencies = [
  "wasm-bindgen",
  "web-sys",
  "yew",
+ "yew_icons",
 ]
 
 [[package]]
@@ -1101,7 +1102,8 @@ checksum = "f40009d85759725a34da6d89a94e63d7bdc50a862acf0dbc7c8e488f1edcb6f5"
 [[package]]
 name = "yew"
 version = "0.20.0"
-source = "git+https://github.com/yewstack/yew/#03cd37f1eab039f47b7f919ff1df59fff5b9f01c"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5dbecfe44343b70cc2932c3eb445425969ae21754a8ab3a0966981c1cf7af1cc"
 dependencies = [
  "console_error_panic_hook",
  "futures",
@@ -1125,7 +1127,8 @@ dependencies = [
 [[package]]
 name = "yew-macro"
 version = "0.20.0"
-source = "git+https://github.com/yewstack/yew/#03cd37f1eab039f47b7f919ff1df59fff5b9f01c"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b64c253c1d401f1ea868ca9988db63958cfa15a69f739101f338d6f05eea8301"
 dependencies = [
  "boolinator",
  "once_cell",
@@ -1134,4 +1137,13 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "yew_icons"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0601d9e0dc6fbf88663d0a92c3aaa9ad5f5f8a3bf7866f563ed232e6de5d2793"
+dependencies = [
+ "yew",
 ]

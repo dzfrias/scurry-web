@@ -105,7 +105,7 @@ example.print();
             </div>
             <div class={classes!("md:w-1/2", "overflow-y-auto", "h-full")}>
                 <p class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip")}>{"Output"}</p>
-                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-300", "active:bg-gray-200")}>{&(*output)}</p>
+                <p id="output" class={classes!("font-mono", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-300", "active:bg-gray-100")}>{&(*output)}</p>
             </div>
         </div>
     }

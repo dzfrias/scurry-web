@@ -90,7 +90,7 @@ pub fn Editor() -> Html {
                     // TODO: Toggle REPL button
                 </ul>
                 // TODO: Autopairs
-                <textarea id="editor" autocorrect="off" autocapitalize="none" {onkeydown} spellcheck="false" placeholder="println(\"Hello, world!\");" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none", "bg-gray-200", "focus:bg-gray-100")} value="decl Example {
+                <textarea id="editor" autocorrect="off" autocapitalize="none" {onkeydown} spellcheck="false" placeholder="println(\"Hello, world!\");" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none", "bg-gray-300", "focus:bg-gray-100")} value="decl Example {
     field: String
 
     fn $new(self) { self.field = \"Hello, world!\"; }
@@ -105,7 +105,7 @@ example.print();
             </div>
             <div class={classes!("md:w-1/2", "overflow-y-auto", "h-full")}>
                 <p class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip")}>{"Output"}</p>
-                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-200", "active:bg-gray-100")}>{&(*output)}</p>
+                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-300", "active:bg-gray-200")}>{&(*output)}</p>
             </div>
         </div>
     }

@@ -22,7 +22,7 @@ fn App() -> Html {
             <div class={classes!("ml-4", "h-screen", "w-full")}>
                 <h1 class={classes!("text-4xl", "border-b-2", "mb-3", "md:w-1/5", "border-yellow-300", "text-orange-900", "w-1/3", "ml-2")}>{"About"}</h1>
                 <div class={classes!("flex-col", "md:flex-row", "flex", "mr-8")}>
-                    <p class={classes!("mb-5", "flex-1", "bg-gray-200", "rounded", "p-3", "active:bg-gray-100", "text-base")}>
+                    <p class={classes!("mb-5", "flex-1", "bg-gray-300", "rounded", "p-3", "active:bg-gray-100", "text-base")}>
                         {"Scurry is a strictly component-based object-oriented language. The goal of Scurry is to limit shared state while still allowing users to use the intuitive nature of object-oriented programming."}
                         <br/><br/>
                         {"While Scurry is dynamically typed, it encourages type annotations and has features that allow nasty type errors to be caught early in a program's lifetime."}

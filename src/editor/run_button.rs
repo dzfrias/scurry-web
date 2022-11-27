@@ -48,6 +48,6 @@ pub fn RunButton(props: &Props) -> Html {
     });
 
     html! {
-        <button {onclick} class={classes!("bg-orange-700", "px-3", "rounded", "text-2xl", "hover:bg-yellow-400", "text-yellow-100", "hover:text-amber-900")}>{"Run"}</button>
+        <button {onclick} id="runButton" class={classes!("bg-orange-700", "px-3", "rounded", "text-2xl", "hover:bg-yellow-400", "text-yellow-100", "hover:text-amber-900")}>{"Run"}</button>
     }
 }

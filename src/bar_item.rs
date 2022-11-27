@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_icons::{Icon, IconId};
 
-#[derive(Debug, PartialEq, Properties)]
+#[derive(Debug, PartialEq, Eq, Properties)]
 pub struct Props {
     pub name: AttrValue,
     pub target: AttrValue,

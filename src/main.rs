@@ -34,18 +34,7 @@ fn App() -> Html {
                         <br/><br/>
                         {"On top of this, Scurry aims to be as intuitive as possible, offering both little syntax and syntax that users will feel familiar with if they've programmed before."}
                     </p>
-                    <Example code="decl Example {
-    field: String
-
-    fn $new(self) { self.field = \"Hello, world!\"; }
-
-    exp fn print(self) { println(self.field); }
-}
-
-example = Example();
-// This was a pretty convoluted hello world...
-example.print();
-// See the docs for more!"/>
+                    <Example code={include_str!("../static/examples/hello_world.scy")}/>
                     <p class={classes!("hidden", "2xl:inline", "flex-1")}></p>
                 </div>
                 <h1 class={classes!("text-4xl", "border-b-2", "mb-3", "md:w-1/5", "border-orange-900", "text-gray-800", "w-1/3", "ml-2", "font-['Maven_Pro']", "font-bold")}>{"Playground"}</h1>

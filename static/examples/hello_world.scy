@@ -1,0 +1,12 @@
+decl Example {
+    field: String
+
+    fn $new(self) { self.field = "Hello, world!"; }
+
+    exp fn print(self) { println(self.field); }
+}
+
+example = Example();
+// This was a pretty convoluted hello world...
+example.print();
+// See the docs for more!"

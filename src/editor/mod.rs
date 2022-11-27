@@ -83,17 +83,29 @@ pub fn Editor() -> Html {
     };
 
     html! {
-        <div class={classes!("mx-4", "flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
+        <div class={classes!("mr-8", "flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
             <div class={classes!("md:w-1/2", "cursor-col-resize", "h-full")}>
                 <ul class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded")}>
                     <RunButton {set_output}/>
                     // TODO: Toggle REPL button
                 </ul>
-                <textarea id="editor" {onkeydown} spellcheck="false" placeholder="Enter code here" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none")}></textarea>
+                // TODO: Autopairs
+                <textarea id="editor" autocorrect="off" autocapitalize="none" {onkeydown} spellcheck="false" placeholder="println(\"Hello, world!\");" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none", "bg-gray-200", "focus:bg-gray-100")} value="decl Example {
+    field: String
+
+    fn $new(self) { self.field = \"Hello, world!\"; }
+
+    exp fn print(self) { println(self.field); }
+}
+
+example = Example();
+// This was a pretty convoluted hello world...
+example.print();
+// See the docs in the menu bar for more!"></textarea>
             </div>
             <div class={classes!("md:w-1/2", "overflow-y-auto", "h-full")}>
                 <p class={classes!("py-1", "pl-4", "bg-yellow-900", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip")}>{"Output"}</p>
-                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3")}>{&(*output)}</p>
+                <p id="output" class={classes!("font-mono", "bg-white", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-200", "active:bg-gray-100")}>{&(*output)}</p>
             </div>
         </div>
     }

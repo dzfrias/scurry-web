@@ -719,9 +719,9 @@ checksum = "4501abdff3ae82a1c1b477a17252eb69cee9e66eb915c1abaa4f44d873df9f09"
 
 [[package]]
 name = "scurry"
-version = "0.4.2"
+version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "64f3f86ba3b43b51e7165bdc9e5d404abdfcf6f5d3f60b0be3de5a90f729c08e"
+checksum = "d4e36b4ba8f7ae79aa6e39f076a69e12ef67c03434affda2564ec281eef8451f"
 dependencies = [
  "clap",
  "clap_complete",

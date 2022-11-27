@@ -7,9 +7,18 @@ use yew::prelude::*;
 fn App() -> Html {
     html! {
         <div class={classes!("h-screen")}>
-            <h1 class={classes!("bg-orange-900", "text-4xl", "py-3", "pl-2", "italic", "mb-5", "text-yellow-400")}>
-                {"Scurry"}<span class={classes!("text-xs", "text-yellow-500", "pl-1")}>{"A new take on object-oriented languages"}</span>
-            </h1>
+            <div class={classes!("bg-orange-900", "mb-5")}>
+                <div class={classes!("flex")}>
+                    <h1 class={classes!("text-4xl", "py-3", "pl-2", "italic", "text-yellow-400", "flex-1")}>
+                    {"Scurry"}<span class={classes!("text-xs", "text-yellow-500", "pl-1")}>{"A new take on object-oriented languages"}</span>
+                    </h1>
+                    <ul class={classes!("pr-9", "self-center", "flex", "gap-10", "text-amber-500", "text-lg")}>
+                        // TODO: Link here
+                        <a class={classes!("hover:text-yellow-100")}>{"Docs"}</a>
+                        <a target="_blank" href="https://github.com/dzfrias/scurry" class={classes!("hover:text-yellow-100")}>{"GitHub"}</a>
+                    </ul>
+                </div>
+            </div>
             <Editor/>
         </div>
     }

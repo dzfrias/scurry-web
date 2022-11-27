@@ -16,7 +16,7 @@ fn App() -> Html {
                     <ul class={classes!("pr-9", "self-center", "flex", "md:gap-10", "text-amber-900", "text-lg", "gap-4")}>
                         // TODO: Link here
                         <a class={classes!("hover:text-amber-700", "flex-row", "flex", "items-center", "gap-1")}><Icon icon_id={IconId::HeroiconsOutlineDocumentText}/><span class={classes!("hidden", "sm:inline")}>{"Docs"}</span></a>
-                        <a target="_blank" href="https://github.com/dzfrias/scurry" class={classes!("hover:text-amber-700", "flex-row", "flex", "items-center", "gap-2")}><Icon icon_id={IconId::BootstrapGithub}/><span class={classes!("hidden", "sm:inline")}>{"Docs"}</span></a>
+                        <a target="_blank" href="https://github.com/dzfrias/scurry" class={classes!("hover:text-amber-700", "flex-row", "flex", "items-center", "gap-2")}><Icon icon_id={IconId::BootstrapGithub}/><span class={classes!("hidden", "sm:inline")}>{"GitHub"}</span></a>
                     </ul>
                 </div>
             </div>

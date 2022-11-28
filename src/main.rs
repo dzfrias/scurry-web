@@ -17,7 +17,7 @@ fn App() -> Html {
                     <h1 class={classes!("text-6xl", "py-3", "pl-2", "italic", "text-amber-900", "flex-1", "font-['Raleway']", "drop-shadow-lg")}>
                     {"Scurry"}<span class={classes!("text-xs", "text-gray-800", "pl-1", "hidden", "sm:inline-flex")}>{"A refreshing take on object-oriented languages"}</span>
                     </h1>
-                    <ul class={classes!("pr-9", "self-center", "flex", "md:gap-10", "text-amber-900", "text-lg", "gap-4")}>
+                    <ul class={classes!("pr-9", "self-center", "flex", "md:gap-10", "gap-4")}>
                         // TODO: Link here
                         <BarItem name="Docs" target="https://github.com/dzfrias/scurry" icon_id={IconId::HeroiconsOutlineDocumentText}/>
                         <BarItem name="GitHub" target="https://github.com/dzfrias/scurry" icon_id={IconId::BootstrapGithub}/>

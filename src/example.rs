@@ -46,7 +46,7 @@ pub fn Example(props: &Props) -> Html {
             <div class={classes!("brightness-50", "group-hover:bg-gray-300", "p-4", "rounded-xl")}>
                 <code class={classes!("whitespace-pre", "font-mono", "select-none", "group-hover:blur-[1px]")}>{props.code.clone()}</code>
             </div>
-            <p class={classes!("invisible", "blur-none", "absolute", "text-amber-600", "text-3xl", "font-['Maven_Pro']", "font-bold", "flex-row", "flex", "items-center", "gap-2", "select-none", "group-hover:visible", "group-active:text-yellow-100", "group-active:text-4xl")}><Icon icon_id={IconId::FontAwesomeRegularCopy}/>{"Copy"}</p>
+            <p class={classes!("invisible", "blur-none", "absolute", "text-amber-600", "text-3xl", "font-main", "font-bold", "flex-row", "flex", "items-center", "gap-2", "select-none", "group-hover:visible", "group-active:text-yellow-100", "group-active:text-4xl")}><Icon icon_id={IconId::FontAwesomeRegularCopy}/>{"Copy"}</p>
         </div>
     }
 }

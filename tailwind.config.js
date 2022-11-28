@@ -5,7 +5,12 @@ module.exports = {
         "./src/**/*.html",
         "./src/**/*.css",
     ],
-    theme: {},
+    theme: {
+        fontFamily: {
+            "main": ["\"Maven Pro\""],
+            "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        },
+    },
     variants: {},
     plugins: [],
 };

@@ -49,6 +49,20 @@ pub fn RunButton(props: &Props) -> Html {
     });
 
     html! {
-        <button {onclick} id="runButton" class={classes!("bg-orange-700", "px-3", "rounded", "text-2xl", "hover:bg-yellow-400", "text-yellow-100", "hover:text-amber-900", "flex-row", "flex", "items-center", "gap-1")}>{"Run"}<Icon icon_id={IconId::FontAwesomeSolidChevronRight} width={"23px".to_owned()} height={"23px".to_owned()}/></button>
+        <button {onclick} id="runButton" class={
+            classes!("bg-orange-700",
+                     "px-3",
+                     "rounded",
+                     "text-2xl",
+                     "hover:bg-yellow-400",
+                     "text-yellow-100",
+                     "hover:text-amber-900",
+                     "flex-row",
+                     "flex",
+                     "items-center",
+                     "gap-1",
+                     "font-main")}>
+            {"Run"}<Icon icon_id={IconId::FontAwesomeSolidChevronRight} width={"23px".to_owned()} height={"23px".to_owned()}/>
+        </button>
     }
 }

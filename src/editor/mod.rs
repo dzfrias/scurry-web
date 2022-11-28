@@ -93,7 +93,7 @@ pub fn Editor() -> Html {
                 <textarea id="editor" autocorrect="off" autocapitalize="none" {onkeydown} spellcheck="false" placeholder="println(\"Hello, world!\");" class={classes!("w-full", "font-mono", "text-ml", "p-2", "focus:outline-none", "overflow-y-auto", "h-2/3", "resize-none", "bg-gray-300", "focus:bg-gray-100")}></textarea>
             </div>
             <div class={classes!("md:w-1/2", "overflow-y-auto", "h-full")}>
-                <p class={classes!("py-1", "pl-4", "bg-gray-800", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip")}>{"Output"}</p>
+                <p class={classes!("py-1", "pl-4", "bg-gray-800", "pt-2", "rounded", "text-2xl", "text-center", "text-yellow-100", "overflow-y-clip", "font-main")}>{"Output"}</p>
                 <p id="output" class={classes!("font-mono", "w-full", "p-2", "text-ml", "whitespace-pre", "overflow-y-scroll", "h-2/3", "bg-gray-300", "active:bg-gray-100")}>{&(*output)}</p>
             </div>
         </div>

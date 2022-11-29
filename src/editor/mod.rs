@@ -46,10 +46,6 @@ impl From<KeyboardEvent> for KeyPress {
 #[function_component]
 pub fn Editor() -> Html {
     let output = use_state_eq(String::new);
-    let set_output = {
-        let output = output.clone();
-        move |out: String| output.set(out)
-    };
     let onkeydown = {
         move |key: KeyboardEvent| {
             let key: KeyPress = key.into();
@@ -86,7 +82,7 @@ pub fn Editor() -> Html {
         <div class={classes!("mr-8", "flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
             <div class={classes!("md:w-1/2", "h-5/6", "flex-col", "flex")}>
                 <ul class={classes!("py-1", "pl-4", "bg-gray-800", "pt-2", "rounded")}>
-                    <RunButton {set_output}/>
+                    <RunButton output={output.clone()}/>
                     // TODO: Toggle REPL button
                 </ul>
                 // TODO: Autopairs

@@ -1,18 +1,45 @@
 use scurry::interpreter::Interpreter;
 use scurry::parser::Parser;
+use std::io::Write;
 use wasm_bindgen::{JsCast, UnwrapThrowExt};
 use web_sys::{self, HtmlTextAreaElement};
 use yew::prelude::*;
 use yew_icons::{Icon, IconId};
 
+#[derive(Debug)]
+pub struct Output {
+    vector: Vec<u8>,
+    state: UseStateHandle<String>,
+}
+
+impl Write for Output {
+    fn write(&mut self, buf: &[u8]) -> std::io::Result<usize> {
+        let written = self.vector.write(buf);
+        self.state.set(
+            String::from_utf8(self.vector.clone())
+                .expect_throw("program should output valid utf-8"),
+        );
+        written
+    }
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        self.vector.flush()?;
+        self.state.set(
+            String::from_utf8(self.vector.clone())
+                .expect_throw("program should output valid utf-8"),
+        );
+        Ok(())
+    }
+}
+
 #[derive(PartialEq, Properties)]
 pub struct Props {
-    pub set_output: Callback<String>,
+    pub output: UseStateHandle<String>,
 }
 
 #[function_component]
 pub fn RunButton(props: &Props) -> Html {
-    let set_output = props.set_output.clone();
+    let output = props.output.clone();
     let onclick = Callback::from(move |_| {
         let editor = web_sys::window()
             .expect_throw("window should be available")
@@ -22,7 +49,10 @@ pub fn RunButton(props: &Props) -> Html {
             .expect_throw("editor should exist")
             .dyn_into::<HtmlTextAreaElement>()
             .expect_throw("element should be a textarea");
-        let mut out = Vec::new();
+        let mut out = Output {
+            vector: Vec::new(),
+            state: output.clone(),
+        };
         let mut interpreter = Interpreter::new(&mut out);
         match Parser::new(&editor.value()).parse() {
             Ok(program) => {
@@ -30,10 +60,8 @@ pub fn RunButton(props: &Props) -> Html {
                     .eval(program)
                     // FIX: Runtime errors
                     .expect_throw("should have no errors");
-                set_output
-                    .emit(String::from_utf8(out).expect_throw("program should output valid utf-8"));
             }
-            Err(errs) => set_output.emit(format!(
+            Err(errs) => output.set(format!(
                 "parser errors:{}",
                 errs.into_iter()
                     .map(|err| {

@@ -79,7 +79,7 @@ pub fn Editor() -> Html {
     };
 
     html! {
-        <div class={classes!("mr-8", "flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
+        <div class={classes!("flex", "gap-2", "flex-col", "md:flex-row", "h-full")}>
             <div class={classes!("md:w-1/2", "h-5/6", "flex-col", "flex")}>
                 <ul class={classes!("py-1", "pl-4", "bg-gray-800", "pt-2", "rounded")}>
                     <RunButton output={output.clone()}/>

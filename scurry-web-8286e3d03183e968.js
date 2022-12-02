@@ -709,7 +709,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('scurry-web-9a6c200975f9a833_bg.wasm', import.meta.url);
+        input = new URL('scurry-web-8286e3d03183e968_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

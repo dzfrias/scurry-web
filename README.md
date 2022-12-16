@@ -1,5 +1,5 @@
 # Scurry
-<img src="/Users/dzfrias/code/scurry/website/static/img/docusaurus.png" alt="logo" width="200"/>
+<img src="./static/images/logo.png" alt="logo" width="200"/>
 
 This repository holds Scurry's official website. On it, you can try Scurry for
 yourself with no downloads required!

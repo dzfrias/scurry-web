@@ -56,10 +56,9 @@ pub fn RunButton(props: &Props) -> Html {
         let mut interpreter = Interpreter::new(&mut out);
         match Parser::new(&editor.value()).parse() {
             Ok(program) => {
-                interpreter
-                    .eval(program)
-                    // FIX: Runtime errors
-                    .expect_throw("should have no errors");
+                if let Err(err) = interpreter.eval(program) {
+                    output.set(format!("runtime error:\n{err}"))
+                }
             }
             Err(errs) => output.set(format!(
                 "parser errors:{}",
